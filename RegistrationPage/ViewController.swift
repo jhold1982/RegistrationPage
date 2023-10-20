@@ -28,6 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 		// Do any additional setup after loading the view.
 		nameTextField.delegate = self
 		passwordField.delegate = self
+		passwordField.isSecureTextEntry = true
 	}
 	
 	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -39,17 +40,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
 	// Check name text field for min/max character length
 	func validateNameLength() {
 		
-			// Define the minimum and maximum character lengths
-			let minLength = 5
-			let maxLength = 20
+		// Define the minimum and maximum character lengths
+		let minLength = 5
+		let maxLength = 20
 
-			// Get the current text in the text field
-			if let name = nameTextField.text {
-				if name.count < minLength || name.count > maxLength {
-					showErrorAlert(message: "Name must be between \(minLength) and \(maxLength) characters.")
-				}
+		// Get the current text in the text field
+		if let name = nameTextField.text {
+			if name.count < minLength || name.count > maxLength {
+				showErrorAlert(message: "Name must be between \(minLength) and \(maxLength) characters.")
 			}
 		}
+	}
 	
 	// Check complexity of password
 	private func passwordCheck(
